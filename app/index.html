@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">  
+    <title>DE - EN Dictionary</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" />
+
+    
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular/angular-sanitize.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    
+  </head>
+ 
+  <body ng-app="myApp">
+    <h1>JoMo Dictionary - INDEX</h1>
+    
+    <div ng-controller="myCtrl">
+      Search: <input type="text" ng-model="search.word" placeholder="Search">
+      <hr>
+    
+        <div ng-repeat="word in words | filter:wordmatch">  
+          <dl>
+           <dt ng-bind-html="word.de | highlight:search.word"></dt>
+           <dd ng-bind-html="word.en | highlight:search.word"></dd>
+          </dl>
+        </div>
+        
+    </div>
+    
+  </body>
+</html>

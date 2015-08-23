@@ -1,0 +1,16 @@
+/* Styles go here */
+.odd {background-color: white;}
+.even {background-color: lightgray;}
+
+table {
+  font-size: 10px;
+}
+
+.highlight {
+	background: yellow;
+	color: red;
+}
+
+h1 {
+	color: green;
+}
