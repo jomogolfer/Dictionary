@@ -1,9 +1,16 @@
-app.filter('highlight', function($sce) {
-  	return function(wordMatch, phrase) {
-    	
-  		// Turn each word in wordMatch into a hyperlink
+'use strict';
+
+/* Filters */
+
+angular.module('dictionaryFilters', [])
+
+.filter('highlight', function($sce) {
+ 
+  return function(wordMatch, phrase) {
+      
+      // Turn each word in wordMatch into a hyperlink
       wordMatch = wordMatch.replace(new RegExp('([a-zA-Z\x7f-\xff]+)((?![^{]*}))((?![^[]*]))', 'gi'),
-          '<a id="link" href="http://espn.com">$1</a>');
+          '<a href="#/word/$1">$1</a>');
       
       // Replace each | character with a line break 
       wordMatch = wordMatch.replace(/\|/g, '<br />');

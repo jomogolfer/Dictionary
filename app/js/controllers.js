@@ -1,4 +1,10 @@
-app.controller('myCtrl', function($scope, $sce, $http) {
+'use strict';
+
+/* Controllers */
+
+var dictionaryControllers = angular.module('dictionaryControllers', []);
+
+dictionaryControllers.controller('wordCtrl', function($scope, $sce, $http) {
   $http.get("words/data.json").success(function (response) {
     $scope.words = response.words;
   });
@@ -25,3 +31,11 @@ app.controller('myCtrl', function($scope, $sce, $http) {
 	        return wordMatch;
     };
 });
+
+/*
+dictionaryControllers.controller('wordCtrl', function($scope, $sce, $http) {
+    $http.get("words/data.json").success(function (response) {
+        $scope.words = response.words;
+    });
+});
+*/
