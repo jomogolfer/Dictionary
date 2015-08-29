@@ -6,10 +6,10 @@ var app = angular.module('myApp', ['ngSanitize','ngRoute','dictionaryControllers
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/word', {
+      when('/', {
         templateUrl: 'templates/word.html',
         controller: 'wordCtrl'
-      }).     
+      }).
       otherwise({
         redirectTo: '/'
       });

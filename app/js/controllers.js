@@ -8,8 +8,8 @@ dictionaryControllers.controller('wordCtrl', function($scope, $sce, $http) {
   $http.get("words/data.json").success(function (response) {
     $scope.words = response.words;
   });
-
-	$scope.wordmatch = function (word) {
+  
+    $scope.wordmatch = function (word) {
         if (!angular.isDefined(word) || 
             !angular.isDefined($scope.search)) {
             return false;
@@ -20,7 +20,7 @@ dictionaryControllers.controller('wordCtrl', function($scope, $sce, $http) {
             $scope.search.word.length > 0) {
           
             if (angular.isDefined(word.de)) {
-            	    wordMatch = wordMatch || 
+                    wordMatch = wordMatch || 
                     word.de.toLowerCase().indexOf($scope.search.word.toLowerCase()) > -1;
                                                }
             if (angular.isDefined(word.en)) {
@@ -28,14 +28,6 @@ dictionaryControllers.controller('wordCtrl', function($scope, $sce, $http) {
                     word.en.toLowerCase().indexOf($scope.search.word.toLowerCase()) > -1;
             }
         }
-	        return wordMatch;
+            return wordMatch;
     };
 });
-
-/*
-dictionaryControllers.controller('wordCtrl', function($scope, $sce, $http) {
-    $http.get("words/data.json").success(function (response) {
-        $scope.words = response.words;
-    });
-});
-*/

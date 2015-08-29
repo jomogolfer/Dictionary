@@ -1,0 +1,13 @@
+    
+    <div ng-controller="searchCtrl">
+      You searched for {{word}}.
+
+      <input type="text" ng-model="word" placeholder="Search">
+
+       <div ng-repeat="word in words | filter:wordmatch">  
+          <dl>
+           <dt ng-bind-html="word.de | highlight:search.word"></dt>
+           <dd ng-bind-html="word.en | highlight:search.word"></dd>
+          </dl>
+        </div>
+    </div>
